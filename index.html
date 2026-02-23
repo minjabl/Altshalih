@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-tag">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">سياسة الخصوصية | تطبيق التشاليح</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FFC107;
+            /* اللون الأصفر الأساسي */
+            --primary-hover: #e0a800;
+            --text-color: #333333;
+            --text-light: #5f6368;
+            --bg-color: #f4f6f9;
+            --container-bg: #ffffff;
+            --border-color: #eeeeee;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        /* تنسيق الخط للإنجليزي */
+        body.en-lang {
+            font-family: 'Roboto', sans-serif;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: var(--container-bg);
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            border-top: 6px solid var(--primary-color);
+        }
+
+        /* زر تغيير اللغة */
+        .lang-switch {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        body.en-lang .lang-switch {
+            text-align: right;
+        }
+
+        .lang-btn {
+            background-color: var(--primary-color);
+            color: #000;
+            border: none;
+            padding: 8px 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            color: var(--text-color);
+            font-size: 2.2rem;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .content h2 {
+            color: #000;
+            font-size: 1.4rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            background-color: #fff9e6;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-right: 4px solid var(--primary-color);
+        }
+
+        body.en-lang .content h2 {
+            border-right: none;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .content p {
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+            color: #4a4a4a;
+        }
+
+        .content ul {
+            margin-bottom: 20px;
+        }
+
+        .content li {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            color: #4a4a4a;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: #000;
+            background-color: rgba(255, 193, 7, 0.2);
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .footer span {
+            color: #000;
+            font-weight: 700;
+            background-color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* الإخفاء والإظهار */
+        .ar-content,
+        .en-content {
+            display: none;
+        }
+
+        .ar-content.active,
+        .en-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* تصميم الموبايل */
+        @media (max-width: 768px) {
+            .container {
+                margin: 15px;
+                padding: 25px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .content h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="lang-switch">
+            <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
+        </div>
+
+        <div class="ar-content active" id="arabicContent">
+            <div class="header">
+                <h1>سياسة الخصوصية</h1>
+                <p>تطبيق التشاليح | آخر تحديث: 23 فبراير 2026</p>
+            </div>
+
+            <div class="content">
+                <p>ألتزم بصفتي المطور المستقل لتطبيق "التشاليح" ("أنا"، "التطبيق الخاص بي") بحماية خصوصية مستخدمي
+                    التطبيق. توضح سياسة الخصوصية هذه كيفية جمعي واستخدامي وحمايتي للمعلومات الشخصية التي تقدمها عند
+                    استخدامك للتطبيق.</p>
+
+                <h2>1. المعلومات التي أجمعها</h2>
+                <p>أنا أجمع بعض المعلومات الضرورية لتقديم أفضل تجربة ممكنة، وتشمل:</p>
+                <ul>
+                    <li><span class="highlight">معلومات الحساب:</span> عند التسجيل، قد أطلب منك تقديم معلومات مثل الاسم،
+                        رقم الهاتف، وعنوان البريد الإلكتروني.</li>
+                    <li><span class="highlight">المحتوى الذي تشاركه:</span> الصور، التفاصيل، ووصف قطع الغيار والمعدات
+                        التي تقوم برفعها أو الاستفسار عنها.</li>
+                    <li><span class="highlight">الصلاحيات:</span> قد يطلب التطبيق الوصول إلى الكاميرا/المعرض لرفع الصور،
+                        والموقع الجغرافي لتسهيل العثور على البائعين.</li>
+                    <li><span class="highlight">بيانات الاستخدام:</span> معلومات تفاعلك مع التطبيق لتحسين الأداء وحل
+                        المشاكل.</li>
+                </ul>
+
+                <h2>2. كيف أستخدم معلوماتك؟</h2>
+                <ul>
+                    <li>إنشاء وإدارة حسابك في التطبيق.</li>
+                    <li>تسهيل التواصل المباشر (المحادثات الفورية) بين البائع والمشتري.</li>
+                    <li>تحسين واجهة المستخدم وتطوير الخدمات.</li>
+                    <li>تقديم الدعم الفني.</li>
+                </ul>
+
+                <h2>3. مشاركة المعلومات</h2>
+                <p>أنا لا أقوم ببيع أو تأجير معلوماتك الشخصية. يتم مشاركة البيانات الأساسية فقط (الاسم ورقم الهاتف) بين
+                    البائع والمشتري داخل التطبيق لتسهيل البيع والشراء بموافقتك.</p>
+
+                <h2>4. أمان البيانات</h2>
+                <p>أتخذ إجراءات أمنية لحماية بياناتك من الوصول غير المصرح به. ومع ذلك، لا توجد وسيلة نقل عبر الإنترنت
+                    آمنة بنسبة 100%.</p>
+
+                <h2>5. حقوق المستخدم</h2>
+                <ul>
+                    <li>الوصول إلى معلومات حسابك وتعديلها.</li>
+                    <li>طلب حذف حسابك وجميع بياناتك من خلال إعدادات التطبيق أو التواصل المباشر معي.</li>
+                </ul>
+
+                <h2>6. تواصل معي</h2>
+                <p>لأي استفسارات حول سياسة الخصوصية، تواصل معي عبر:</p>
+                <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">
+                    care@minjabl.com
+                </p>
+            </div>
+
+            <div class="footer">
+                <p> <span></span> &copy; 2026</p>
+            </div>
+        </div>
+
+        <div class="en-content" id="englishContent">
+            <div class="header">
+                <h1>Privacy Policy</h1>
+                <p>Tashlih App | Last Updated: February 23, 2026</p>
+            </div>
+
+            <div class="content">
+                <p>As the independent developer of the "Tashlih" app ("I", "my app"), I am committed to protecting the
+                    privacy of my users. This Privacy Policy explains how I collect, use, and protect the personal
+                    information you provide when using the app.</p>
+
+                <h2>1. Information I Collect</h2>
+                <p>I collect necessary information to provide the best possible experience, including:</p>
+                <ul>
+                    <li><span class="highlight">Account Information:</span> When registering, I may ask for your name,
+                        phone number, and email address.</li>
+                    <li><span class="highlight">Shared Content:</span> Images, details, and descriptions of spare parts
+                        and equipment you upload or inquire about.</li>
+                    <li><span class="highlight">Permissions:</span> The app may request access to your camera/gallery to
+                        upload images, and location services to help find nearby sellers/buyers.</li>
+                    <li><span class="highlight">Usage Data:</span> Information about how you interact with the app to
+                        improve performance and fix bugs.</li>
+                </ul>
+
+                <h2>2. How I Use Your Information</h2>
+                <ul>
+                    <li>To create and manage your account.</li>
+                    <li>To facilitate direct communication (live chat) between buyers and sellers.</li>
+                    <li>To improve the user interface and app services.</li>
+                    <li>To provide customer support.</li>
+                </ul>
+
+                <h2>3. Sharing Information</h2>
+                <p>I do not sell or rent your personal information to third parties. Basic data (like name and phone
+                    number) is only shared between the buyer and seller within the app to facilitate transactions with
+                    your explicit consent.</p>
+
+                <h2>4. Data Security</h2>
+                <p>I take appropriate technical measures to protect your data from unauthorized access. However, please
+                    be aware that no method of transmission over the internet is 100% secure.</p>
+
+                <h2>5. User Rights</h2>
+                <ul>
+                    <li>Access and update your account information at any time.</li>
+                    <li>Request the deletion of your account and associated data via app settings or by contacting me
+                        directly.</li>
+                </ul>
+
+                <h2>6. Contact Me</h2>
+                <p>If you have any questions about this Privacy Policy, please contact me at:</p>
+                <p style="text-align: center; font-weight: bold; font-size: 1.2rem;">
+                    care@minjabl.com
+                </p>
+            </div>
+
+            <div class="footer">
+                <p> <span></span> &copy; 2026</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleLanguage() {
+            const htmlTag = document.getElementById('html-tag');
+            const arContent = document.getElementById('arabicContent');
+            const enContent = document.getElementById('englishContent');
+            const langBtn = document.getElementById('langBtn');
+            const pageTitle = document.getElementById('pageTitle');
+
+            if (htmlTag.getAttribute('lang') === 'ar') {
+                // التحويل للإنجليزي
+                htmlTag.setAttribute('lang', 'en');
+                htmlTag.setAttribute('dir', 'ltr');
+                document.body.classList.add('en-lang');
+
+                arContent.classList.remove('active');
+                enContent.classList.add('active');
+
+                langBtn.textContent = 'عربي';
+                document.title = 'Privacy Policy | Tashlih App';
+            } else {
+                // التحويل للعربي
+                htmlTag.setAttribute('lang', 'ar');
+                htmlTag.setAttribute('dir', 'rtl');
+                document.body.classList.remove('en-lang');
+
+                enContent.classList.remove('active');
+                arContent.classList.add('active');
+
+                langBtn.textContent = 'English';
+                document.title = 'سياسة الخصوصية | تطبيق التشاليح';
+            }
+        }
+    </script>
+</body>
+
+</html>
